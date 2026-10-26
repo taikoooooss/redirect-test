@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>リダイレクト中...</title>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const targetUrl = params.get('url'); // 「?url=...」のパラメータ名を取得
+
+      if (targetUrl) {
+        // 安全のため、外部へのオープンリダイレクト等のリスクに注意してください
+        window.location.replace(targetUrl);
+      } else {
+        document.body.innerText = 'リダイレクト先のURLが指定されていません。';
+      }
+    });
+  </script>
+</head>
+<body>
+  <p>リダイレクトしています...</p>
+</body>
+</html>
